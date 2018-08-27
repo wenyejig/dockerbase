@@ -1,7 +1,8 @@
 FROM java:8-jdk-alpine
 
 #修改时区为上海
-RUN apk add --no-cache tzdata
+RUN apk add --no-cache tzdata curl bash ttf-dejavu 
+RUN rm -rf /var/cache/apk/*
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo "Asia/Shanghai" > /etc/timezone
 RUN apk del tzdata
